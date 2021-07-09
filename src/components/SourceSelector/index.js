@@ -204,9 +204,8 @@ class SourceSelector extends Component {
                 metadataSpan = (<span>{this.formatMetadata(variant.bitrate, variant.width, variant.height)}</span>);
             }
         }
-        return (<div className="source-metadata">
+        return (<div className="source-metadata" onClick={() => this.showUrlInput()}>
             <div className="source-name" title={this.state.source.name}>{this.state.source.name}</div>
-            <div>{metadataSpan}</div>
         </div>);
     }
 

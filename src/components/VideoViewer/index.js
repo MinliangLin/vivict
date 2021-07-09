@@ -31,7 +31,7 @@ const leftVideoVariant = Number(urlParams.get('leftVideoVariant')) || 0;
 const rightVideoVariant = Number(urlParams.get('rightVideoVariant')) || 0;
 const startPosition = Number(urlParams.get('position')) || 0;
 const hideSourceSelector = Boolean(urlParams.get('hideSourceSelector'));
-const hideHelp = Boolean(urlParams.get('hideHelp'));
+const hideHelp = true;//Boolean(urlParams.get('hideHelp'));
 
 const DEFAULT_SOURCE_LEFT = {
     type: sourceType(leftVideoUrl),
