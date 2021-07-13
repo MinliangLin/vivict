@@ -213,9 +213,6 @@ class SourceSelector extends Component {
         return (
             <div className={cx("source-selector", this.props.className, {'hidden': !this.props.visible})}>
                 <div className="source-buttons">
-                    <div title="open URL" className="url-button" >
-                        <FiGlobe style={{cursor: 'pointer'}} onClick={() => this.showUrlInput()}/>
-                    </div>
                     <label title="open local file" className="source-file-input" onClick={(evt) => {
                         this.hideUrlInput();
                         evt.stopPropagation()
