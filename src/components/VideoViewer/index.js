@@ -181,8 +181,8 @@ class VideoViewer extends Component {
             const rightVariantParam = isDashOrHls(this.state.rightSource.type) ?
                 `&rightVideoVariant=${this.state.rightSource.variant}` : "";
             const path = `${window.location.host}${window.location.pathname}?position=${this.state.position}`
-            + `&leftVideoUrl=${this.state.leftSource.url}${leftVariantParam}`
-            + `&rightVideoUrl=${this.state.rightSource.url}${rightVariantParam}`
+            + `&leftVideoUrl=${encodeURIComponent(this.state.leftSource.url)}${leftVariantParam}`
+            + `&rightVideoUrl=${encodeURIComponent(this.state.rightSource.url)}${rightVariantParam}`
             + (urlParams.get('hideSourceSelector') ? `&hideSourceSelector=${urlParams.get('hideSourceSelector')}` : "")
             + (urlParams.get('hideHelp') ? `&hideHelp=${urlParams.get('hideHelp')}` : "")
             console.log("Copying to clipboard: " + path);
