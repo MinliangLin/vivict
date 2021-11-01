@@ -3,6 +3,7 @@ import Hls from 'hls.js'
 import dashjs from 'dashjs';
 import {isHlsPlaylist} from "../../util/HlsUtils";
 import {isDashManifest} from "../../util/DashUtils";
+import {isImage} from "../../util/ImageUtils";
 
 const zoomInMultiplier = 1.1;
 const zoomOutMultiplier = 1/zoomInMultiplier;
@@ -108,6 +109,9 @@ class VideoPlayer extends Component {
                 this.loadHls(url, variant)
             } else if (isDashManifest(url)) {
                 this.loadDash(url, variant);
+            } else if (isImage(url)) {
+                this.videoElement.poster = url;
+                this.videoElement.src = url;
             } else {
                 this.videoElement.src = url;
             }

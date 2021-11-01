@@ -356,6 +356,7 @@ class VideoViewer extends Component {
                         />
                         <div className={cx("big-play-button", {
                             "hidden": this.state.playing || this.state.position !== 0
+                            || this.state.leftSource.type === 'image' || this.state.rightSource.type === 'image'
                         })}
                              onClick={() => this.play()}
                         >

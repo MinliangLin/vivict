@@ -1,5 +1,6 @@
 import {isHlsPlaylist} from "./HlsUtils";
 import {isDashManifest} from "./DashUtils";
+import {isImage} from "./ImageUtils";
 
 export function sourceType(url) {
     if (isHlsPlaylist(url)) {
@@ -7,6 +8,9 @@ export function sourceType(url) {
     }
     if (isDashManifest(url)) {
         return 'dash';
+    }
+    if (isImage(url)) {
+        return 'image';
     }
     return 'url';
 }

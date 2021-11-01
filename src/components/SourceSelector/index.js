@@ -5,6 +5,7 @@ import './index.css';
 import {isHlsPlaylist, parseHlsManifest} from '../../util/HlsUtils';
 import {mp4Info} from '../../util/Mp4Info';
 import {isDashManifest, parseDashManifest} from "../../util/DashUtils";
+import {isImage} from '../../util/ImageUtils';
 
 class SourceSelector extends Component {
 
@@ -112,6 +113,8 @@ class SourceSelector extends Component {
             type = 'hls';
         } else if (isDashManifest(url)) {
             type = 'dash';
+        } else if (isImage(url)) {
+            type = 'image';
         }
         this.changeSource({
             type,
@@ -150,6 +153,8 @@ class SourceSelector extends Component {
             await this.loadHlsMetadata(source.url)
         } else if (source.type === 'dash') {
             await this.loadDashMetadata(source.url);
+        } else if (source.type === 'image') {
+            // do nothing
         } else {
             await this.loadMp4Metadata(source.url);
         }
