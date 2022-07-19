@@ -36,7 +36,9 @@ class VideoPlayer extends Component {
     }
 
     async play() {
-        return this.videoElement.play();
+        if (this.videoElement.error === null) {
+            return this.videoElement.play();
+        }
     }
 
     pause() {
@@ -110,6 +112,7 @@ class VideoPlayer extends Component {
             } else if (isDashManifest(url)) {
                 this.loadDash(url, variant);
             } else if (mediaType === 'image') {
+                this.videoElement.preload = "metadata";//for Safari
                 this.videoElement.poster = url;
                 this.videoElement.src = "";
             } else {
