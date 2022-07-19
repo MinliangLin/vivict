@@ -7,6 +7,6 @@ export function isImage(url) {
             return true;
         }
     }
-    console.log('false', filename);
+    console.log('isNotImage', filename);
     return false;
 }

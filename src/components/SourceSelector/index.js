@@ -127,8 +127,9 @@ class SourceSelector extends Component {
     onFileSelected(evt) {
         if (evt.target.files && evt.target.files[0]) {
             const file = evt.target.files[0];
+            const mediaType = file.type.startsWith('image/') ? 'image' : 'file';
             this.changeSource({
-                type: 'file',
+                type: mediaType,
                 name: file.name,
                 url: window.URL.createObjectURL(file),
             });

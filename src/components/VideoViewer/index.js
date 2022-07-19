@@ -238,7 +238,7 @@ class VideoViewer extends Component {
     async changeSource(videoElement, source) {
         console.log(`Change source ${source.url} ${source.variant}`);
         this.pauseAndExecute(videoElement, async () => {
-            await videoElement.loadSource(source.url, source.variant);
+            await videoElement.loadSource(source.url, source.variant, source.type);
         });
     }
 

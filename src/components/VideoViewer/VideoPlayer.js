@@ -97,8 +97,8 @@ class VideoPlayer extends Component {
     }
 
 
-    async loadSource(url, variant) {
-        console.log(`load source: ${url} ${variant}`);
+    async loadSource(url, variant, mediaType) {
+        console.log(`load source: ${url} ${variant} ${mediaType}`);
         return new Promise((resolve, reject) => {
             this.videoElement.addEventListener('canplay',
                 () => {
@@ -109,9 +109,9 @@ class VideoPlayer extends Component {
                 this.loadHls(url, variant)
             } else if (isDashManifest(url)) {
                 this.loadDash(url, variant);
-            } else if (isImage(url)) {
+            } else if (mediaType === 'image') {
                 this.videoElement.poster = url;
-                this.videoElement.src = url;
+                this.videoElement.src = "";
             } else {
                 this.videoElement.src = url;
             }
