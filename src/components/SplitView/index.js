@@ -92,7 +92,8 @@ class SplitView extends Component {
     }
 
     setSplitPosition(position) {
-        this.splitViewClipper.style.width = position+"%";
+        // this.splitViewClipper.style.width = (100-position) + "%";
+        // this.splitViewClipper.style.left = position+"%";
     }
 
     focus() {

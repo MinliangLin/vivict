@@ -191,7 +191,7 @@ class VideoPlayer extends Component {
                    tabIndex="-1"
                    style={{
                        width: width,
-                       left: this.state.panHorizontal + 'px',
+                       left: '-25vw',
                        top: this.state.panVertical + 'px'
                    }}
             >

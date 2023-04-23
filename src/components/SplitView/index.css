@@ -33,6 +33,7 @@
 
 .split-view-clipper {
     width: 50%;
+    left: 50%;
     position: absolute;
     top: 0;
     bottom: 0;
