@@ -347,10 +347,10 @@ class VideoViewer extends Component {
                                onDrag={(dx,dy) => this.pan(dx,dy)}
                                onClick={() => this.playPause()}
                                ref={this.setSplitViewRef}
-                               leftSideContent={(<VideoPlayer muted ref={this.setLeftVideoRef} />)}
+                               leftSideContent={(<VideoPlayer muted ref={this.setRightVideoRef} />)}
                     >
 
-                        <VideoPlayer ref={this.setRightVideoRef}
+                        <VideoPlayer ref={this.setLeftVideoRef}
                                      onTimeUpdate={(time) => this.onTimeUpdate(time)}
                                      onDurationSet={(duration) => this.onDurationSet(duration)}
                         />
