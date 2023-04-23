@@ -73,7 +73,7 @@ class VideoViewer extends Component {
             rightSource:{name: "NONE", url: null, variant: rightVideoVariant},
             tracking: true,
             splitBorderVisible: true,
-            rightVideoOffset: rightVideoOffset,
+            rightVideoOffset: 0,
             showHelp: !hideHelp,
             showSourceSelector: !hideSourceSelector,
             playReverse: false,
@@ -327,6 +327,9 @@ class VideoViewer extends Component {
 
     componentDidMount() {
         this.splitView.focus();
+        if (rightVideoOffset != 0) {
+            this.changeOffset(rightVideoOffset);
+        }
         this.seek(startPosition)
             .catch(e => console.trace(e));
         this.videoViewer.addEventListener('fullscreenchange', this.onFullScreenChange);
