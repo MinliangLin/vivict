@@ -13,7 +13,7 @@ class VideoPlayer extends Component {
         super(props);
         this.state = {
             zoom: 1,
-            panHorizontal: 0,
+            panHorizontal: -25,
             panVertical: 0
         };
         this.onTimeUpdate = this.onTimeUpdate.bind(this);
@@ -81,8 +81,8 @@ class VideoPlayer extends Component {
         const panVertical = (clientHeight - videoElementHeight) / 2;
         this.setState({
             zoom: 1,
-            panHorizontal: 0,
-            panVertical: panVertical
+            panHorizontal: -25,
+            panVertical: 0 // panVertical
         });
     }
 
@@ -191,8 +191,8 @@ class VideoPlayer extends Component {
                    tabIndex="-1"
                    style={{
                        width: width,
-                       left: '-25vw',
-                       top: this.state.panVertical + 'px'
+                       left: this.state.panHorizontal + 'vw',
+                       top: this.state.panVertical + 'vh'
                    }}
             >
             </video>

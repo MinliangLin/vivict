@@ -279,8 +279,9 @@ class VideoViewer extends Component {
     }
 
     pan(deltaX, deltaY) {
-        this.leftVideo.pan(deltaX, deltaY);
-        this.rightVideo.pan(deltaX, deltaY);
+        const factor = 1920/100;
+        this.leftVideo.pan(deltaX/factor, deltaY/factor);
+        this.rightVideo.pan(deltaX/factor, deltaY/factor);
         this.setState({userDefinedPanZoom: true});
     }
 
