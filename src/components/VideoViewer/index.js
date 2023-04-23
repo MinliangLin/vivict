@@ -32,6 +32,7 @@ const rightVideoVariant = Number(urlParams.get('rightVideoVariant')) || 0;
 const startPosition = Number(urlParams.get('position')) || 0;
 const hideSourceSelector = Boolean(urlParams.get('hideSourceSelector'));
 const hideHelp = true;//Boolean(urlParams.get('hideHelp'));
+const rightVideoOffset = Number(urlParams.get('rightVideoOffset')) || 0;
 
 const DEFAULT_SOURCE_LEFT = {
     type: sourceType(leftVideoUrl),
@@ -72,7 +73,7 @@ class VideoViewer extends Component {
             rightSource:{name: "NONE", url: null, variant: rightVideoVariant},
             tracking: true,
             splitBorderVisible: true,
-            rightVideoOffset: 0,
+            rightVideoOffset: rightVideoOffset,
             showHelp: !hideHelp,
             showSourceSelector: !hideSourceSelector,
             playReverse: false,
@@ -185,6 +186,7 @@ class VideoViewer extends Component {
             + `&rightVideoUrl=${encodeURIComponent(this.state.rightSource.url)}${rightVariantParam}`
             + (urlParams.get('hideSourceSelector') ? `&hideSourceSelector=${urlParams.get('hideSourceSelector')}` : "")
             + (urlParams.get('hideHelp') ? `&hideHelp=${urlParams.get('hideHelp')}` : "")
+            + (`&rightVideoOffset=${this.state.rightVideoOffset}`)
             console.log("Copying to clipboard: " + path);
             copyToClipboard(path)
         }
